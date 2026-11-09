@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent 学习资料库 · 首页导航（前端 → Agent 工程师）</title>
+<meta name="description" content="前端转 Agent 工程师系列资料一站式导航:总纲、库源读、逐周逐日详解册,全部离线可读。">
+<style>
+:root{
+  color-scheme: light;
+  --bg:#fcfcfd; --bg-soft:#f4f4f8; --card:#ffffff;
+  --text:#22252a; --text-2:#5b6069; --text-3:#8b909a;
+  --border:#e6e7ec; --brand:#646cff; --brand-2:#bd34fe; --accent:#ffd62e;
+  --green:#10b981; --amber:#f59e0b; --blue:#3b82f6;
+  --radius:12px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:0 28px}
+/* hero */
+header.hero{padding:64px 0 44px;border-bottom:1px solid var(--border)}
+.kicker{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:600;color:var(--brand);
+  background:rgba(100,108,255,.09);border:1px solid rgba(100,108,255,.22);padding:4px 12px;border-radius:99px;margin-bottom:18px}
+.hero h1{margin:0 0 14px;font-size:38px;line-height:1.25;letter-spacing:-.5px;
+  background:linear-gradient(100deg,#1a1c20 30%,var(--brand-2) 70%,var(--brand) 90%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero .lead{margin:0;font-size:16.5px;color:var(--text-2);max-width:680px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.badge{font-size:12px;padding:4px 11px;border-radius:99px;background:var(--bg-soft);border:1px solid var(--border);color:var(--text-2)}
+.badge.hot{background:#fff7e0;border-color:#f3e3ad;color:#9a7b0a}
+.badge.ok{background:#f2fbf7;border-color:#bfe8d7;color:#0b7d5c}
+.badge.doing{background:#f3f8ff;border-color:#c9dcfb;color:#1d62d8}
+/* 区块 */
+section{padding-top:40px}
+h2{display:flex;align-items:center;gap:12px;margin:0 0 6px;font-size:21px;letter-spacing:-.3px}
+.chip{flex:none;width:34px;height:34px;border-radius:10px;color:#fff;font-size:13px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--brand-2),var(--brand));box-shadow:0 3px 10px rgba(100,108,255,.28)}
+.sec-desc{margin:4px 0 14px;font-size:14px;color:var(--text-3)}
+/* 卡片网格 */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px;margin:16px 0}
+a.card{display:flex;flex-direction:column;gap:8px;background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:16px 18px;text-decoration:none;color:var(--text);
+  box-shadow:0 1px 3px rgba(20,22,40,.06);transition:transform .15s,box-shadow .15s,border-color .15s;position:relative;overflow:hidden}
+a.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--brand-2),var(--brand))}
+a.card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(20,22,40,.12);border-color:rgba(100,108,255,.4)}
+.card .t{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px}
+.card .d{font-size:13px;color:var(--text-2);line-height:1.6;flex:1}
+.card .meta{display:flex;gap:6px;flex-wrap:wrap}
+.card .meta span{font-size:11px;padding:2px 9px;border-radius:99px;background:var(--bg-soft);border:1px solid var(--border);color:var(--text-3)}
+.card.empty{border-style:dashed;background:transparent;box-shadow:none;cursor:default}
+.card.empty::before{display:none}
+.card.empty .t{color:var(--text-3)}
+/* 说明区 */
+.guide{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:16px 0}
+.guide .g{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;position:relative;overflow:hidden}
+.guide .g::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--brand-2),var(--brand))}
+.guide .g b{display:block;font-size:14px;margin-bottom:4px}
+.guide .g span{font-size:13px;color:var(--text-2);line-height:1.65}
+code{background:var(--bg-soft);border:1px solid var(--border);border-radius:6px;padding:1px 6px;font-size:13.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+/* 目录树 */
+.tree{background:#16181d;color:#e6e8ee;border-radius:var(--radius);padding:18px 20px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:13px;line-height:1.75;overflow-x:auto;margin:16px 0;white-space:pre}
+.tree .c{color:#8b909a}
+.tree .h{color:#7dd3fc}
+footer{padding:40px 0 56px;text-align:center;color:var(--text-3);font-size:13px;border-top:1px solid var(--border);margin-top:48px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <span class="kicker">🧭 AGENT LIBRARY · 学习资料库 · 首页导航</span>
+  <h1>前端 → Agent 工程师<br>学习资料库</h1>
+  <p class="lead">转型系列的一站式导航：总纲、库源读、逐周逐日详解册。所有卡片直达对应文件，相对路径链接——整个文件夹搬去哪里都不会失效。全部离线可读。</p>
+  <div class="badges">
+    <span class="badge hot">🆕 2026-11 持续更新中</span>
+    <span class="badge">📁 与 agent/ 目录结构 1:1 对应</span>
+    <span class="badge">📴 全部离线可读</span>
+    <span class="badge">⏱ 26 周在职节奏 · 工作日 4h+ · 周末休息</span>
+  </div>
+</header>
+
+<section>
+  <h2><span class="chip">使</span>使用方式</h2>
+  <div class="guide">
+    <div class="g"><b>🖱️ 双击卡片直达</b><span>全部为相对路径链接，从本页一点即达；目录搬家、拷到别的电脑都不失效。</span></div>
+    <div class="g"><b>📅 学哪天点哪天</b><span>当日详解册（Week1/DayX/）是当天唯一需要打开的文件；周分册用于总览，总册用于决策与求职。</span></div>
+    <div class="g"><b>🔄 怎么更新</b><span>对 Claude 说「补齐 W1-D7」「开始 W2」即可——新资料自动按目录结构上架并更新本页。</span></div>
+    <div class="g"><b>🧭 阅读顺序建议</b><span>新入手：总册第 00-04 章 → 本周分册 → 当日详解册。求职期：总册第 09 章直达。</span></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="chip">纲</span>总纲与库源读</h2>
+  <p class="sec-desc">跨周使用的决策层与工具层文档，放库根目录。</p>
+  <div class="cards">
+    <a class="card" target="_blank" rel="noopener" href="前端转Agent工程师-路线与学习地图.html">
+      <div class="t">🗺️ 前端转 Agent 工程师 · 路线与学习地图</div>
+      <div class="d">总册：岗位认知、三条转型路径、26 周节奏总览（5 里程碑锚点）、求职冲刺与面试 QA。方向与排期的唯一权威来源。</div>
+      <div class="meta"><span>v1.2</span><span>12 章 · 8 图</span><span>26 周版 · 5 天周</span></div>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="openai库原理与实战详解.html">
+      <div class="t">📦 openai 库原理与实战详解</div>
+      <div class="d">库源读系列 01 册：生态定位、参数精讲、流式/工具/结构化机制、错误重试体系、国产模型兼容 12 坑、源码浅读。</div>
+      <div class="meta"><span>v1.0</span><span>v7.x 基准</span><span>兼容光谱</span></div>
+    </a>
+  </div>
+</section>
+
+<section>
+  <h2><span class="chip">频</span>视频资源 · 中文讲解(疲劳期输入模式)</h2>
+  <p class="sec-desc">按「观看时机」分组,与学习计划对齐。规则:疲劳期看视频是合法学习模式,别有负罪感;但每次看完写 3 句话笔记才算数,且严守各册的「停住线」——视频看完一集就停,不 binge。</p>
+  <div class="cards">
+    <a class="card" target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1qM4m1d7is">
+      <div class="t">🎬 3B1B《GPT 是什么》中文配音</div>
+      <div class="d">Transformer 可视化直感(token/注意力/温度采样)——你已看过,疲劳期可当「被动复习」重刷第三段。</div>
+      <div class="meta"><span class="ok">✅ 已看(W1-D3)</span><span>约 27 分钟</span></div>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1AJen6SEVQ">
+      <div class="t">🎓 吴恩达 Agentic AI 中文课(B 站)</div>
+      <div class="d">智能体工作流、Reflection、工具使用、规划模式——与你 w1-cli 的实现一一对应。D4 ReAct 精读日的最佳配套。</div>
+      <div class="meta"><span style="background:#f3f8ff;border-color:#c9dcfb;color:#1d62d8">🎯 W2-D4 前后看</span><span>挑模块看,不必全刷</span></div>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="https://github.com/datawhalechina/agentic-ai">
+      <div class="t">📝 Datawhale · 吴恩达课中文笔记</div>
+      <div class="d">上面课程的中文文字版 + 知识点梳理 + 示例解读——不想看视频时的纯文字替代,通勤地铁友好。</div>
+      <div class="meta"><span class="doing">📖 配套文字版</span><span>随时可读</span></div>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1ZDN76fENL">
+      <div class="t">🔌 MCP 保姆级入门(原理 + 实战)</div>
+      <div class="d">1 小时吃透 MCP 协议原理与项目实战——W4 阶段二(MCP 周)的前置必备。</div>
+      <div class="meta"><span class="doing">🎯 W3 末 / W4 前看</span><span>约 1 小时</span></div>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="https://github.com/mli/paper-reading">
+      <div class="t">📚 李沐 · 论文逐段精读合集(67 篇)</div>
+      <div class="d">深度学习经典论文精读(Transformer/BERT/GPT…)。严守 W1-D3 的停住线:现阶段只可当「背景音复习」,W20 深化期再系统性看。</div>
+      <div class="meta"><span>📦 收藏勿看(现阶段)</span><span>每篇 40-90 分钟</span></div>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="https://search.bilibili.com/all?keyword=RAG%E6%95%99%E7%A8%8B">
+      <div class="t">🔍 RAG 教程(B 站话题页入口)</div>
+      <div class="d">检索增强生成原理与实战教程合集——W9 RAG 周的前置输入,现在收藏、到点再看。</div>
+      <div class="meta"><span>📦 W9 前看</span><span>先收藏</span></div>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1KqJk62Euv">
+      <div class="t">🗄 Agent 全栈开发合集(2026)</div>
+      <div class="d">培训营风格的全栈合集(748 集)。建议只扫目录了解「市场在教什么」的知识图谱,<strong>不建议跟学</strong>——你的路线比它深且更对口。</div>
+      <div class="meta"><span>📦 选看目录即可</span><span>营销向合集</span></div>
+    </a>
+  </div>
+  <div class="callout warn" style="border-radius:var(--radius);padding:14px 18px;margin:16px 0;font-size:14px;border:1px solid #f4e3bb;background:#fffaf0">
+    <b style="color:#9a6c07">⚠️ 疲劳期两条纪律</b><br>
+    ① 视频日也算学习日,但<strong>每天不超过一集大课</strong>,看完写 3 句话笔记(进 notes/);② 遇到「停住线」标记的资源(如李沐合集里的数学细节),跳过不追——疲劳期最容易犯的错就是把「看视频的轻松感」当成「学习的进度」,我们的判断标准不变:看完能复述三句话才算数。
+  </div>
+</section>
+
+<section>
+  <h2><span class="chip">一</span>Week1 · LLM 基础与 API 实战(✅ 已完结)</h2>
+  <p class="sec-desc">阶段一第 1 周:消息数组 → 流式 → 工具调用 → 结构化与成本 → 周末整合。产出 w1-cli v1.0(agent-journey/w1/d7/w1-cli/),M1 里程碑提前达成。</p>
+  <div class="cards">
+    <a class="card" target="_blank" rel="noopener" href="Week1/W1-LLM基础与API实战-学习手册.html">
+      <div class="t">📘 W1 周分册 · D1-D7 总览</div>
+      <div class="d">本周逐日大纲、知识清单、项目规格(P1)与周验收标准。补齐清单全绿:D2-D7 详解册全集已交付并学完。</div>
+      <div class="meta"><span>周总览</span><span class="ok">✅ 已完结</span></div>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="Week1/Day2/W1-D2详解-消息数组与多轮对话.html">
+      <div class="t">💬 D2 · 消息数组与多轮对话</div>
+      <div class="d">无状态心智模型、四角色深解、无状态验证实验、多轮 CLI 五段式完整代码（含命令系统与错误回滚）、坑清单。</div>
+      <div class="meta"><span class="ok">✅ 已学完</span><span>完整代码</span></div>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="Week1/Day3/W1-D3详解-原理速览与采样参数.html">
+      <div class="t">🎛 D3 · 原理速览与采样参数</div>
+      <div class="d">3B1B 三段导读、采样管线图解、参数直觉与非确定性真相、sampling-matrix.ts 矩阵实验、笔记模板。</div>
+      <div class="meta"><span class="ok">✅ 已学完</span><span>含中文版视频指引</span></div>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="Week1/Day4/W1-D4详解-流式输出.html">
+      <div class="t">⚡ D4 · 流式输出（SSE）</div>
+      <div class="d">前端存量衔接映射表、SSE 逐帧解剖、手写流解析、SDK 对照、CLI 流式 + 可中断升级（中断保留内容）。</div>
+      <div class="meta"><span class="ok">✅ 已学完</span><span>前端主场</span></div>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="Week1/Day5/W1-D5详解-FunctionCalling.html">
+      <div class="t">🔧 D5 · Function Calling</div>
+      <div class="d">协议四步闭环时序图、tools.ts 注册表、多跳 Agent 循环 v1.1（tools 每跳携带 + 强制收尾兜底）、三个协议实验、十坑清单。</div>
+      <div class="meta"><span class="ok">✅ 已学完</span><span>v1.1 含 Agent 循环</span></div>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="Week1/Day6/W1-D6详解-结构化输出与成本核算.html">
+      <div class="t">💰 D6 · 结构化输出与成本核算</div>
+      <div class="d">输出契约三层强度、工具式抽取 + zod 自愈循环、成本面板与价格表、平方增长曲线实测。</div>
+      <div class="meta"><span class="ok">✅ 已学完</span><span>新上架</span></div>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="Week1/Day7/W1-D7详解-周整合与出厂.html">
+      <div class="t">🏁 D7 · 周整合与出厂</div>
+      <div class="d">零件清点与组装顺序、三个本地文件工具(含路径穿越防护)、流式×工具合流完整代码(W1 峰值代码)、演示任务序列图、W2 起步包(P1 拆解卡)与周综合自测。</div>
+      <div class="meta"><span class="ok">✅ 已学完</span><span>W1 收官</span></div>
+    </a>
+  </div>
+</section>
+
+<section>
+  <h2><span class="chip">二</span>Week2 · Agent 循环产品化与 P1(本周)</h2>
+  <p class="sec-desc">5 天周(11-09 → 11-13,周末休息):把 w1-cli 从「能跑」打磨成「可靠」,周五 P1 v1.0 出厂、达成里程碑 M1。代码在 agent-journey/w2/。</p>
+  <div class="cards">
+    <a class="card" target="_blank" rel="noopener" href="Week2/W2-Agent循环产品化与P1-学习手册.html">
+      <div class="t">📘 W2 周分册 · D1-D5 总览</div>
+      <div class="d">双轨定位(已领先/仍需补齐)、5 天节奏表、P1 规格、M1 达成确认表、补齐清单。</div>
+      <div class="meta"><span>周总览</span><span class="doing">📖 本周</span><span>5 天周</span></div>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="Week2/Day1/W2-D1详解-参数化与run_command白名单.html">
+      <div class="t">⚙️ D1 · 参数化与 run_command 白名单</div>
+      <div class="d">非交互模式(可测试性分界线)、run_command 三重防线、验收路径 6 条。代码已写入 w2/d1/p1-cli/。</div>
+      <div class="meta"><span class="doing">📖 进行中</span><span>代码已补齐</span></div>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="Week2/Day2/W2-D2详解-稳定性测试.html">
+      <div class="t">📊 D2 · 稳定性测试</div>
+      <div class="d">评估思维三步、stability.ts 完整代码(10 次重复跑测)、失败归因五类手册、最小改进闭环。代码已写入 w2/d2/。</div>
+      <div class="meta"><span class="doing">📖 进行中</span><span>代码已补齐</span></div>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="Week2/Day3/W2-D3详解-错误恢复演练.html">
+      <div class="t">🧨 D3 · 错误恢复演练</div>
+      <div class="d">四场景故障注入(断网/超长文件/损坏文件/工具风暴)、语义层失败洞察、护栏收紧三片段(二进制检测/连续失败熔断)、演练记录模板。</div>
+      <div class="meta"><span class="doing">📖 进行中</span><span>代码已补齐 fixtures 脚本</span></div>
+    </a>
+    <a class="card" target="_blank" rel="noopener" href="Week2/Day4/W2-D4详解-ReAct精读与查漏.html">
+      <div class="t">📜 D4 · ReAct 精读与查漏</div>
+      <div class="d">论文前 4 页逐段导读、论文↔实现对照表填空版、五大演化点(面试金句)、--verbose 跳数可视化开关、总册 05 章查漏三态清单。</div>
+      <div class="meta"><span class="doing">📖 进行中</span><span>代码已补齐 --verbose</span></div>
+    </a>
+    <div class="card empty">
+      <div class="t">🗓 D5 · 待学</div>
+      <div class="d">P1 v1.0 出厂(README/录屏/周复盘)与 M1 达成确认——明天对 Claude 说「补齐 W2-D5」。</div>
+      <div class="meta"><span>按需补齐</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="chip">三</span>Week3+ · 后续周次(按进度上架)</h2>
+  <p class="sec-desc">W3(11-16 → 11-20):P1 复盘收尾与阶段一封版;W4 开启阶段二(核心模式与 MCP)。对 Claude 说「开始 WX」即生成分册。</p>
+  <div class="cards">
+    <div class="card empty">
+      <div class="t">🌱 Week3+ · 后续(待排期)</div>
+      <div class="d">按总册逐周表推进:W4-6 阶段二(核心模式与 MCP)→ W7-11 阶段三(框架与全栈项目 P3)→ W12-16 阶段四 → W17-20 深化 → W21-26 求职。</div>
+      <div class="meta"><span>远期</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="chip">构</span>目录结构对照</h2>
+  <p class="sec-desc">本页链接与磁盘结构一一对应，卡片顺序即阅读优先级。</p>
+  <div class="tree"><span class="c">学习资料/agent/</span>
+├── index.html                          <span class="c"># ← 你在这里（导航首页）</span>
+├── 前端转Agent工程师-路线与学习地图.html   <span class="c"># 总册 v1.1</span>
+├── openai库原理与实战详解.html            <span class="c"># 库源读 01</span>
+└── <span class="h">Week1/</span>
+    ├── W1-LLM基础与API实战-学习手册.html  <span class="c"># 周分册</span>
+    ├── <span class="h">Day2/</span> W1-D2详解-消息数组与多轮对话.html
+    ├── <span class="h">Day3/</span> W1-D3详解-原理速览与采样参数.html
+    ├── <span class="h">Day4/</span> W1-D4详解-流式输出.html
+    ├── <span class="h">Day5/</span> W1-D5详解-FunctionCalling.html  <span class="c"># v1.1</span>
+    └── <span class="h">Day6/</span> W1-D6详解-结构化输出与成本核算.html  <span class="c"># 新</span>
+
+<span class="c"># D1 无独立详解册（内容在周分册内已完整）</span>
+<span class="c"># Week2 起按同结构扩展:Week2/W2-*.html + Week2/DayX/</span></div>
+</section>
+
+<footer>
+  前端 → Agent 工程师 · 学习资料库导航 · 2026-11<br>
+  <span style="font-size:12px">更新机制：对 Claude 说「补齐 W1-DX」/「开始 WX」，新资料自动上架本页</span>
+</footer>
+
+</div>
+</body>
+</html>
