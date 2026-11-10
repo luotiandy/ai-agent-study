@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>W2-D4 详解 · ReAct 精读与查漏</title>
-<meta name="description" content="W2-D4 详解版:ReAct 论文前 4 页导读、论文与实现对照表、五大演化点、--verbose 开关、查漏三态清单与自测。">
+<meta name="description" content="W2-D4 详解版:ReAct 论文导读、对照表、演化点、--verbose 开关(代码在 w2/d4/)。">
 <style>
 
 :root{
@@ -352,7 +352,7 @@ flowchart LR
 <!-- ============ 04 动手 --verbose ============ -->
 <section id="s4">
   <h2><span class="chip">04</span>动手 · --verbose 可视化开关(约 1h)</h2>
-  <p>代码已写入 <code>w2/d1/p1-cli/</code>:Session 的 hooks 新增 <code>onHop</code>(每跳回调:跳数 / 消息数 / 点名摘要),main.ts 的参数化模式支持 <code>--verbose</code> 开关。三处改动:</p>
+  <p>代码在独立目录 <code>w2/d4/</code>(从 p1-cli 拷贝,按天对齐——D1 保持参数化白名单版不被混入):Session 的 hooks 新增 <code>onHop</code>(每跳回调:跳数 / 消息数 / 点名摘要),main.ts 的参数化模式支持 <code>--verbose</code> 开关。三处改动:</p>
   <div class="codeblock"><div class="bar"><span>改动摘要(已应用,可 git diff 查看)</span><span class="lang">typescript</span></div>
 <pre><code class="lang-ts">// ① Session.ts · ChatHooks 接口新增:
 onHop?: (info: { hop: number; messageCount: number; tools: string[] }) =&gt; void;
@@ -419,7 +419,7 @@ pnpm start-w2d1 -- --task "统计 w1 目录下所有 ts 文件的行数" --dir w
 
 <footer style="padding:48px 0 64px;text-align:center;color:var(--text-3);font-size:13px;border-top:1px solid var(--border);margin-top:56px">
   W2-D4 详解 · ReAct 精读与查漏 · 2026-11<br>
-  <span class="small">《W2 分册》补齐清单 W2-D4 · 代码:w2/d1/p1-cli(--verbose)· 主册 v1.2 系列</span>
+  <span class="small">《W2 分册》补齐清单 W2-D4 · 代码:w2/d4/(--verbose)· 主册 v1.2 系列</span>
 </footer>
 </div>
 </main>
